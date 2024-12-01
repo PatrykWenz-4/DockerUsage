@@ -81,6 +81,46 @@ And using the port we specified:
 
 ![image](https://github.com/user-attachments/assets/8c5a3fce-6b82-4248-b747-6ec35c8b2c95)
 
+At last we containerize apps we created, so this time no image is needed from outside, we create one:
+```
+  react:
+    build:
+      context: ./frontend 
+    container_name: react-frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app  
+      - /app/node_modules 
+    working_dir: /app 
+    command: ["npm", "start"] 
+    environment:
+      - WATCHPACK_POLLING=true
 
+  php:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: php-backend
+    ports:
+      - "8080:80"
+    volumes:
+      - ./backend:/var/www/html
+    depends_on:
+      - mysql
 
+```
 
+New commands:
+
+    working_dir: /app 
+    command: ["npm", "start"] 
+    environment:
+      - WATCHPACK_POLLING=true
+      
+- working_dir -> Sets the working directory inside the container to /app.
+- command: ["npm", "start"]  -> Executes npm start to run the React application properly.
+- WATCHPACK_POLLING=true -> thanks to this command the changes we make live in code, will work also on the container.
+- depends_on -> means that image phpmyadmin will start only after sql image is set up. It is implemented so no erros occur.
+
+Now the application is all set up.
