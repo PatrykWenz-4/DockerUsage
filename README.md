@@ -124,3 +124,9 @@ New commands:
 - depends_on -> means that image phpmyadmin will start only after sql image is set up. It is implemented so no erros occur.
 
 Now the application is all set up.
+
+start the up by typing:
+
+```
+docker-compose up
+```
