@@ -50,7 +50,9 @@ Start the docker-compose.yml file to start the project.
 In order to login as root we can write in cmd:
 
 docker exec -it mysql-db bash
+
 bash-5.1# mysql -u root -p
+
 Enter password:
 
 ![image](https://github.com/user-attachments/assets/4edfed5f-df1e-4781-b107-94f800c00851)
