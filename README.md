@@ -31,6 +31,12 @@ Create a docker-compose.yml (later it will be used for whole project) file and i
     volumes:
       - db_data:/var/lib/mysql
 ```
+And later we set up the volumu:
+```
+volumes:
+  db_data:
+```
+
 Images like that can be found on [https://hub.docker.com/explore](https://hub.docker.com/search?badges=official)
 The mysql image used: https://hub.docker.com/_/mysql.
 
@@ -56,4 +62,25 @@ bash-5.1# mysql -u root -p
 Enter password:
 ```
 ![image](https://github.com/user-attachments/assets/4edfed5f-df1e-4781-b107-94f800c00851)
+
+
+Same is done for phpmyadmin
+
+```
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: root
+```
+
+And using the port we specified:
+
+![image](https://github.com/user-attachments/assets/8c5a3fce-6b82-4248-b747-6ec35c8b2c95)
+
+
+
 
