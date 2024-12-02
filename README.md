@@ -90,7 +90,8 @@ At last we containerize apps we created, so this time no image is needed from ou
 ```
   react:
     build:
-      context: ./frontend 
+      context: ./frontend
+      dockerfile: Dockerfile
     container_name: react-frontend
     ports:
       - "3000:3000"
