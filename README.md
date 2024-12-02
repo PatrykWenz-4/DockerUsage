@@ -13,6 +13,11 @@ Main goals:
   1. Use Docker images for MySQL and phpMyAdmin to manage your database and administration tasks, eliminating the need for additional software like XAMPP.
   2. Containarize whole app so it can work on any system.
 
+Remember that backend and frontend images have to be built
+```
+docker Dockerfile build
+```
+
 Step 1:
 Create image of mysql database.
 Create a docker-compose.yml (later it will be used for whole project) file and include.
